@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card__img">
+        <img [src]="product.thumbnail" alt="Producto">
+    </div>
+    <div class="card__body">
+        <p class="card__title">{{product.title}}</p>
+        <p class="card__price">
+            <span>{{product.price}} {{product.currency_id}}</span>
+            <span class="card__price gray" *ngIf="product.original_price">{{product.original_price}} {{product.currency_id}}</span>
+        </p>
+        <button *ngIf="!cart" class="btn" (click)="addToCart(product)">
+            <span class="header-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </span>
+        </button>
+        <button *ngIf="cart" class="btn btn-remove" (click)="removeFromCart(product)">
+            <span class="header-icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </button>
+    </div>
+</div>

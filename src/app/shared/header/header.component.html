@@ -1,0 +1,60 @@
+<header class="row header">
+    <div class="logo">
+        <input type="checkbox" name="menu" id="menu">
+        <label for="menu"><i class="fas fa-bars"></i></label>
+        <a href="">
+            <img class="img logo__img" src="../../../assets/images/ClothesStore.png" alt="">
+        </a>
+        <span class="header-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <label></label>
+        </span>
+        <nav class="nav-mobile">
+            <ul class="nav-mobile__list">
+                <li class="nav__item nav-mobile__close">
+                    <label for="menu"><i class="fas fa-times"></i></label>
+                </li>
+                <li class="nav__item">Hombre</li>
+                <li class="nav__item">Mujer</li>
+                <li class="nav__item">Niños</li>
+                <li class="nav__item">Junior</li>
+                <li class="nav__item">Accesorios</li>
+                <li class="nav__item">Ofertas</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="actions">
+        <div class="search__bar">
+            <input [formControl]="search" class="search__bar-input" type="text" placeholder="Buscar aquí producto">
+            <span class="search__bar-icon" (click)="searchProducts()">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
+        <div class="icons">
+            <span class="header-icon">
+                <a href="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="number">{{number}}</span>
+                </a>
+            </span>
+            <span class="header-icon">
+                <i class="fas fa-user"></i>
+            </span>
+        </div>
+        <div class="button">
+            <button class="btn header-btn">
+                Iniciar Sesion
+            </button>
+        </div>
+    </div>
+</header>
+<nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__item">Hombre</li>
+        <li class="nav__item">Mujer</li>
+        <li class="nav__item">Niños</li>
+        <li class="nav__item">Junior</li>
+        <li class="nav__item">Accesorios</li>
+        <li class="nav__item">Ofertas</li>
+    </ul>
+</nav>

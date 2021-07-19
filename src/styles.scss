@@ -1,1 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@font-face {
+    font-family: 'bebas';
+    src: url(assets/fonts/Bebas-Regular.ttf);
+}
+
+body{
+  overflow-x: hidden;
+}
+
+
+input[type="checkbox"]{
+  display: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    width: 100%;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input{
+    padding: .75rem 1rem;
+}
+
+.btn{
+  outline: none;
+  border: 2px solid black;
+  background-color: transparent;
+  padding: .5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+  color: black;
+}
+
+.btn:hover{
+  animation: fillBtn .2s;
+  animation-iteration-count: initial;
+  animation-fill-mode: forwards;
+  color: white;
+  transform: translateY(-3s);
+}
+
+@keyframes fillBtn {
+  from {
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+  }
+  to{
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 51%, rgba(0,0,0,1) 100%);
+  }
+}
+
+ul{
+  list-style: none;
+}
+
+.products{
+  margin-top: 2rem;
+  padding: 2rem 10rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+
+  &__item{
+      width: 25%;
+  }
+
+  &__title{
+      padding-top: 4rem;
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: bebas;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .products__item{
+    width: 33%;
+  }
+  
+  .card__img{
+    height: initial !important;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .products{
+    padding: 0rem 2rem;
+    &__item{
+      width: 50%;
+    }
+  }
+
+  .card__img{
+    height: initial !important;
+  }
+}
+

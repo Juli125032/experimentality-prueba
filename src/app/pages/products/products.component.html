@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="container">
+    <h2 class="products__title">Productos Mercado Libre</h2>
+    <div class="products">
+        <div class="products__item" *ngFor="let product of products">
+            <app-card-product [cart]="false" [product]="product"></app-card-product>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
