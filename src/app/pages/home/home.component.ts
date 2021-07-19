@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class HomeComponent implements OnInit {
 
-  products: any;
+  products:any[] = [];
   token = "";
   constructor(public router:ActivatedRoute,
     public productsService: ProductsService) { }
@@ -24,21 +24,19 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('token', this.token);
     });
 
-    await this.productsService.getAllProducts().subscribe((res:any) => {
-      this.products = res.results;
-      const Total:Number = this.products.length;
-      let randoms = [];
-      while (12 < 13) {
-        const id = Math.floor(Math.random() * (50));
-        const product = this.products[id];
-        randoms.push(product);
+    this.productsService.getAllProducts().subscribe((res: any) => {
+      // this.products = res.results;
+      for (let i = 0; i < 12; i++) {
+        const element = Math.floor(Math.random() * (50 - 0 + 1)) + 0;
+        const item = res.results[element];
+        this.products.push(item);
       }
-      this.products = randoms;
     });
 
-    if(!this.token){
-      window.location.href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=5168009178858028&redirect_uri=http://localhost:4200";
-    }
+    // Si necesita el token para consultar
+    // if(!this.token){
+    //   window.location.href="https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=5168009178858028&redirect_uri=http://localhost:4200";
+    // }
 
 
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router, NavigationExtras } from "@angular/router";
 
@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   productos: any;
   number = 0;
   search = new FormControl('');
+  @Output() searchChange: EventEmitter<any> = new EventEmitter();
+
 
   constructor(public router: Router) { }
 
@@ -29,6 +31,7 @@ export class HeaderComponent implements OnInit {
     if(this.search.value){
       const value = this.search.value;
       this.router.navigate(['products/'+value]);
+      this.searchChange.emit(true);
     }
   }
 

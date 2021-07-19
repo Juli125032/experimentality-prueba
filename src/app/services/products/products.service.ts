@@ -14,6 +14,7 @@ export class ProductsService {
   constructor(private http: HttpClient,
     private tokenService: TokenService) {
     const token = this.tokenService.getToken();
+    // Si necesita el token
     this.optionsHeader = {
       headers: new HttpHeaders({
         Authorization: 'Bearer '+token
@@ -21,12 +22,9 @@ export class ProductsService {
     };
   }
 
-  public getProductsTrends(){
-    return this.http.get(this.url+"trends/MCO/MCO1430", this.optionsHeader);
-  }
-
   public getAllProducts(search?: any){
-    this.url = search ? this.url+"sites/MCO/search?q="+search+"&category=MCO1430" : this.url+"sites/MCO/search?category=MCO1430";
-    return this.http.get(this.url, this.optionsHeader);
+    this.url = "https://api.mercadolibre.com/";
+    this.url = (search) ? this.url+"sites/MCO/search?q="+search+"&category=MCO1430" : this.url+"sites/MCO/search?category=MCO1430";
+    return this.http.get(this.url);
   }
 }

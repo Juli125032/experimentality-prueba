@@ -28,4 +28,10 @@ export class ProductsComponent implements OnInit {
       this.products = res.results;
     });
   }
+
+  searchChange(value:boolean){
+    if(value){
+      this.init();
+    }
+  }
 }

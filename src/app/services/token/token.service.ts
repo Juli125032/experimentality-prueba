@@ -17,7 +17,7 @@ export class TokenService {
 
   optionsHeader = {
     headers: new HttpHeaders({
-      Authorization: 'Bearer '+ this.token
+      Authorization: 'Bearer '+ JSON.stringify(this.token)
     })
   };
 
